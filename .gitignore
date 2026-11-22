@@ -1,0 +1,16 @@
+#environments 
+.venv/
+venv/
+
+#python
+__pycache__/
+*.pyc
+
+#model weights
+*.pt
+*.onnx
+*.engine
+
+#generated outputs
+outputs/
+
