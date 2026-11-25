@@ -2,6 +2,7 @@ from ultralytics import YOLO
 import cv2
 from detection.detect_image import detect_image
 from detection.detect_video import detect_video
+from evaluation.run_benchmarks import run_benchmarks
 import time
 
 TEST_IMAGE = "data/images/test.jpg"
@@ -18,21 +19,24 @@ MODEL = YOLO("yolo11n.pt")
 
 
 #TEST VIDEO DETECTION
-last_frame_time = time.perf_counter()
-for results, metadata in detect_video(video_path=TEST_VIDEO, model=MODEL, conf=CONFIDENCE, output_path=OUTPUT_FILE):
+# last_frame_time = time.perf_counter()
+# for results, metadata in detect_video(video_path=TEST_VIDEO, model=MODEL, conf=CONFIDENCE, output_path=OUTPUT_FILE):
 
-    current_time = time.perf_counter()
-    elapsed = current_time = last_frame_time
+#     current_time = time.perf_counter()
+#     elapsed = current_time = last_frame_time
     
-    frame = results["annotated_image"]
-    cv2.imshow("RoadVision", frame)
+#     frame = results["annotated_image"]
+#     cv2.imshow("RoadVision", frame)
 
-    remaining = max((1 / metadata["fps"]) - elapsed, 0.001)
-    remaining_ms = int(remaining * 1000)
+#     remaining = max((1 / metadata["fps"]) - elapsed, 0.001)
+#     remaining_ms = int(remaining * 1000)
 
-    if cv2.waitKey(remaining_ms) & 0xFF == ord("q"):
-        break
+#     if cv2.waitKey(remaining_ms) & 0xFF == ord("q"):
+#         break
 
-    last_frame_time = time.perf_counter()
+#     last_frame_time = time.perf_counter()
+# cv2.destroyAllWindows()
 
-cv2.destroyAllWindows()
+
+#TEST VIDEO BENCHMARKING
+benchmarks = run_benchmarks(TEST_VIDEO, MODEL, CONFIDENCE, disp=True)
