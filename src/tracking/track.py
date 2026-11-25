@@ -2,15 +2,20 @@ class Track():
 
     MAX_MISSED = 100
 
-    def __init__(self, track_id, class_id, class_name):
+    def __init__(self, track_id, class_id, class_name, init_coordinates, init_confidence):
         #class init
         self.track_id = track_id
         self.class_id = class_id
         self.class_name = class_name
 
-        #tracking data dec
-        self.coordinates = None
-        self.confidence = None
+        #initialize tracker variables 
+        self.coordinates = init_coordinates
+        self.confidence = init_confidence
+
+        #save starting point
+        self.starting_coordinates = init_coordinates
+
+        #initialize tracking data dec
         self.age = 1
         self.hits = 1
         self.missed_frames = 0

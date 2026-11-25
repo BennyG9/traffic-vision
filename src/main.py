@@ -3,6 +3,7 @@ import cv2
 from detection.detect_image import detect_image
 from detection.detect_video import detect_video
 from evaluation.run_benchmarks import run_benchmarks
+from tracking.tracker import Tracker
 import time
 
 TEST_IMAGE = "data/images/test.jpg"
@@ -39,4 +40,7 @@ MODEL = YOLO("yolo11n.pt")
 
 
 #TEST VIDEO BENCHMARKING
-benchmarks = run_benchmarks(TEST_VIDEO, MODEL, CONFIDENCE, disp=True)
+#benchmarks = run_benchmarks(TEST_VIDEO, MODEL, CONFIDENCE, disp=True)
+
+
+#TEST OBJECT TRACKING
