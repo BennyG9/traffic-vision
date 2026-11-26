@@ -11,7 +11,7 @@ def association(tracks, detections, matching_threshold):
 
     #empty cases
     if(num_tracks == 0): return [], [], list(range(num_objects))
-    if(num_objects == 0): return [], [], list(range(num_tracks))
+    if(num_objects == 0): return [], list(range(num_tracks)), []
 
     #calculate IoU matrix
     for i in range(num_tracks):
@@ -19,8 +19,11 @@ def association(tracks, detections, matching_threshold):
         for j in range(num_objects):
             IoU_matrix[i,j] = IoU(tracking_coordinates, detections["boxes"][j]["coordinates"])
 
+    cost_matrix = 1 - IoU_matrix
+    cost_matrix[IoU_matrix < matching_threshold] = 1e6
+
     #optimal pairings from Hungarian algorithm
-    track_indices, obj_indices = linear_sum_assignment(1-IoU_matrix, maximize=False)
+    track_indices, obj_indices = linear_sum_assignment(cost_matrix)
 
     #find matches based on given threshold
     matches = []
@@ -36,7 +39,6 @@ def association(tracks, detections, matching_threshold):
         pass
 
 
-    #EVENTUALLY CHANGE TO EARLIER DETECTION OF INVALID IOU
     #find missed tracks
     matched_tracks = {match["track_index"] for match in matches}
     unmatched_tracks = [i for i in range(num_tracks) if(i not in matched_tracks)]

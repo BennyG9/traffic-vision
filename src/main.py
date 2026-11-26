@@ -9,15 +9,15 @@ import time
 
 TEST_IMAGE = "data/images/test.jpg"
 
-TEST_VIDEO = "data/videos/video3.mp4"
+TEST_VIDEO = "data/videos/video4.mp4"
 OUTPUT_FILE = "outputs/video6_detected.mp4"
 
 CONFIDENCE = 0.25
 MODEL = YOLO("yolo11n.pt")
 
 #TEST IMAGE DETECTION
-#results = detect_image(image_path=TEST_IMAGE, model=MODEL, conf=CONFIDENCE, show=True)
-#print(results.keys())
+# results = detect_image(image_path=TEST_IMAGE, model=MODEL, conf=CONFIDENCE, show=True)
+# print(results["boxes"])
 
 
 #TEST VIDEO DETECTION
@@ -58,7 +58,7 @@ for results, metadata in detect_video(video_path=TEST_VIDEO, model=MODEL, conf=C
     cv2.imshow("RoadVision", frame)
 
     remaining = max((1 / metadata["fps"]) - elapsed, 0.001)
-    remaining_ms = int(remaining * 1000) + 100
+    remaining_ms = int(remaining * 1000) + 50
 
     if cv2.waitKey(remaining_ms) & 0xFF == ord("q"):
         break

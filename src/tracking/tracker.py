@@ -12,7 +12,7 @@ class Tracker():
     def update(self, detections):
 
         #object and track associations 
-        matches, unmatched_tracks, unmatched_objects = association(self.tracks, detections, 0.5)
+        matches, unmatched_tracks, unmatched_objects = association(self.tracks, detections, 0.3)
 
         #update tracks with matched objects
         for indices in matches:

@@ -1,6 +1,8 @@
+import numpy as np
+
 class Track():
 
-    MAX_MISSED = 50
+    MAX_MISSED = 15
 
     def __init__(self, track_id, class_id, class_name, init_coordinates, init_confidence):
         #class init
@@ -10,6 +12,7 @@ class Track():
 
         #initialize tracker variables 
         self.coordinates = init_coordinates
+        self.last_coordinates = init_coordinates
         self.confidence = init_confidence
 
         #save starting point
@@ -17,17 +20,18 @@ class Track():
 
         #initialize tracking data dec
         self.age = 1
-        self.hits = 1
+        self.hits = [1]
         self.missed_frames = 0
         pass
 
 
     #update information when track is matched with a detected object
     def log_hit(self, new_coordinates, new_confidence):
+        self.last_coordinates = self.coordinates
         self.coordinates = new_coordinates
         self.confidence = new_confidence 
-        self.hits += 1
         self.age += 1
+        self.hits.append(self.age)
         self.missed_frames = 0
         pass
 
@@ -40,6 +44,19 @@ class Track():
 
     #just return current box for now
     def estimate_new_box(self):
-        return self.coordinates
+
+        #fallback when not enough data to extrapolate new coordiantes 
+        if(len(self.hits) < 2):
+            return self.coordinates
+
+        #change in coordiantes over change in frames
+        current = np.array(self.coordinates, dtype=float)
+        last = np.array(self.last_coordinates, dtype=float)
+        dxyxy_df = (current - last) / (self.hits[-1] - self.hits[-2])
+
+        #we are checking every frame, df = 1
+        df = 1
+
+        return current + (df * dxyxy_df)
 
     pass
