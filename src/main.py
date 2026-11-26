@@ -12,8 +12,8 @@ TEST_IMAGE = "data/images/test.jpg"
 TEST_VIDEO = "data/videos/video4.mp4"
 OUTPUT_FILE = "outputs/video6_detected.mp4"
 
-CONFIDENCE = 0.25
-MODEL = YOLO("yolo11n.pt")
+CONFIDENCE = 0.35
+MODEL = YOLO("yolo11m.pt")
 
 #TEST IMAGE DETECTION
 # results = detect_image(image_path=TEST_IMAGE, model=MODEL, conf=CONFIDENCE, show=True)
@@ -47,6 +47,7 @@ MODEL = YOLO("yolo11n.pt")
 #TEST OBJECT TRACKING
 tracker = Tracker()
 
+delay = 0
 last_frame_time = time.perf_counter()
 for results, metadata in detect_video(video_path=TEST_VIDEO, model=MODEL, conf=CONFIDENCE):
 
@@ -58,7 +59,7 @@ for results, metadata in detect_video(video_path=TEST_VIDEO, model=MODEL, conf=C
     cv2.imshow("RoadVision", frame)
 
     remaining = max((1 / metadata["fps"]) - elapsed, 0.001)
-    remaining_ms = int(remaining * 1000) + 50
+    remaining_ms = int(remaining * 1000) + delay
 
     if cv2.waitKey(remaining_ms) & 0xFF == ord("q"):
         break
