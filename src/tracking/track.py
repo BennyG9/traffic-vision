@@ -1,6 +1,6 @@
 class Track():
 
-    MAX_MISSED = 100
+    MAX_MISSED = 50
 
     def __init__(self, track_id, class_id, class_name, init_coordinates, init_confidence):
         #class init
