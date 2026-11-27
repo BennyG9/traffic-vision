@@ -4,7 +4,7 @@ import torch
 import time 
 import numpy as np
 
-def run_benchmarks(video_path, model, conf, warmup=10, disp=False):
+def run_benchmarks(video_path, model, conf, warmup=10, disp=False, imgsz=640):
 
     #open video
     cap = cv2.VideoCapture(video_path)
@@ -31,7 +31,7 @@ def run_benchmarks(video_path, model, conf, warmup=10, disp=False):
             torch.cuda.synchronize()
             start = time.perf_counter()
  
-            model_results = model(frame, device=0, conf=conf, verbose=False, rect=False, imgsz=416)
+            model_results = model(frame, device=0, conf=conf, verbose=False, rect=False, imgsz=imgsz)
 
             torch.cuda.synchronize()
             elapsed = time.perf_counter() - start

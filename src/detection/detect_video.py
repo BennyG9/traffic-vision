@@ -2,7 +2,7 @@ import cv2
 from pathlib import Path
 from .detect_image import detect_image
 
-def detect_video(video_path, model, conf, output_path=None):
+def detect_video(video_path, model, conf, output_path=None, imgsz=640):
 
     #open video
     cap = cv2.VideoCapture(video_path)
@@ -41,7 +41,7 @@ def detect_video(video_path, model, conf, output_path=None):
                 break
 
             #get model outputs
-            results = detect_image(frame, model, conf)
+            results = detect_image(frame, model, conf, imgsz=imgsz)
 
             #function output
             if(output_file is not None):

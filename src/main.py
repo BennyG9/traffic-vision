@@ -12,17 +12,19 @@ TEST_IMAGE = "data/images/test.jpg"
 TEST_VIDEO = "data/videos/video1.mp4"
 OUTPUT_FILE = "outputs/video6_detected.mp4"
 
+#IMGSZ = 416 #JETSON
+IMGSZ = 640 #LAPTOP
 CONFIDENCE = 0.35
 MODEL = YOLO("yolo11n.pt")
 
 #TEST IMAGE DETECTION
-# results = detect_image(image_path=TEST_IMAGE, model=MODEL, conf=CONFIDENCE, show=True)
+# results = detect_image(image_path=TEST_IMAGE, model=MODEL, conf=CONFIDENCE, show=True, imgsz=IMGSZ)
 # print(results["boxes"])
 
 
 #TEST VIDEO DETECTION
 # last_frame_time = time.perf_counter()
-# for results, metadata in detect_video(video_path=TEST_VIDEO, model=MODEL, conf=CONFIDENCE, output_path=OUTPUT_FILE):
+# for results, metadata in detect_video(video_path=TEST_VIDEO, model=MODEL, conf=CONFIDENCE, output_path=OUTPUT_FILE, imgsz=IMGSZ):
 
 #     current_time = time.perf_counter()
 #     elapsed = current_time = last_frame_time
@@ -41,7 +43,7 @@ MODEL = YOLO("yolo11n.pt")
 
 
 #TEST VIDEO BENCHMARKING
-#benchmarks = run_benchmarks(TEST_VIDEO, MODEL, CONFIDENCE, disp=True)
+#benchmarks = run_benchmarks(TEST_VIDEO, MODEL, CONFIDENCE, disp=True, imgsz=IMGSZ)
 
 
 #TEST OBJECT TRACKING
@@ -49,7 +51,7 @@ MODEL = YOLO("yolo11n.pt")
 
 # delay = 0
 # last_frame_time = time.perf_counter()
-# for results, metadata in detect_video(video_path=TEST_VIDEO, model=MODEL, conf=CONFIDENCE):
+# for results, metadata in detect_video(video_path=TEST_VIDEO, model=MODEL, conf=CONFIDENCE, imgsz=IMGSZ):
 
 #     current_time = time.perf_counter()
 #     elapsed = current_time = last_frame_time
@@ -68,13 +70,13 @@ MODEL = YOLO("yolo11n.pt")
 # cv2.destroyAllWindows()
 
 
-##TEST OBJECT COUNTING
+#TEST OBJECT COUNTING
 tracker = Tracker()
 counter = Counter((700,475), (1225,490))
 
 delay = 0
 last_frame_time = time.perf_counter()
-for results, metadata in detect_video(video_path=TEST_VIDEO, model=MODEL, conf=CONFIDENCE):
+for results, metadata in detect_video(video_path=TEST_VIDEO, model=MODEL, conf=CONFIDENCE, imgsz=IMGSZ):
 
     current_time = time.perf_counter()
     elapsed = current_time = last_frame_time
