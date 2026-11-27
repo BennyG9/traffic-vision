@@ -27,4 +27,6 @@ Roadway video data is sourced from: https://zenodo.org/records/14041920
 
 Inference performance was measured excluding the first 10 frames of the video data. Measurements include model processing, inference, and postprocessing, but exclude video decoding and display overhead. 
 
+![Basic Inference Result](media/inference.png)
+
 
