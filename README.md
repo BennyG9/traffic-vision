@@ -12,10 +12,6 @@ This is an embedded computer vision project that uses YOLO11 and OpenCV for obje
 * __Performance Benchmarking__: Measured inference speed across different hardware platforms
 * __Embedded Deployment__: Deployed on an NVIDIA Jetson Nano with CUDA acceleration
 
-## Data 
-
-Roadway video data is sourced from: https://zenodo.org/records/14041920
-
 ## Results
 
 ### Benchmarks
@@ -40,4 +36,14 @@ Inference performance was measured excluding the first 10 frames of the video da
 #### Jetson Nano Deployment
 ![Jetson Nano Deployment](media/jetson_deployment.png)
 
+## Data 
 
+RoadVision uses traffic footage from the Dataset for Traffic Evaluation by Tiago Silva, available on Zenodo.
+
+Citation:
+
+Silva, T. (2024). Dataset for Traffic Evaluation (Version 2) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.14041920
+
+The Zenodo record identifies CC BY 4.0 and MIT licenses. Refer to the original dataset record for the applicable licensing information.
+
+Original input videos are not included in this repository. Users can obtain the dataset directly from Zenodo.
