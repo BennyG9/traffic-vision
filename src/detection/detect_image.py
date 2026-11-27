@@ -1,7 +1,7 @@
 def detect_image(image_path, model, conf, show=False):
 
     #get model outputs 
-    model_results = model(image_path, device=0, conf=conf, verbose=False)
+    model_results = model(image_path, device=0, conf=conf, verbose=False, rect=False, imgsz=416)
 
     #package important information
     results = {

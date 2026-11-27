@@ -31,7 +31,7 @@ def run_benchmarks(video_path, model, conf, warmup=10, disp=False):
             torch.cuda.synchronize()
             start = time.perf_counter()
  
-            model_results = model(frame, device=0, conf=conf, verbose=False)
+            model_results = model(frame, device=0, conf=conf, verbose=False, rect=False, imgsz=416)
 
             torch.cuda.synchronize()
             elapsed = time.perf_counter() - start

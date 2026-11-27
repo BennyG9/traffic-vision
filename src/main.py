@@ -13,7 +13,7 @@ TEST_VIDEO = "data/videos/video1.mp4"
 OUTPUT_FILE = "outputs/video6_detected.mp4"
 
 CONFIDENCE = 0.35
-MODEL = YOLO("yolo11m.pt")
+MODEL = YOLO("yolo11n.pt")
 
 #TEST IMAGE DETECTION
 # results = detect_image(image_path=TEST_IMAGE, model=MODEL, conf=CONFIDENCE, show=True)
@@ -68,7 +68,7 @@ MODEL = YOLO("yolo11m.pt")
 # cv2.destroyAllWindows()
 
 
-#TEST OBJECT COUNTING
+##TEST OBJECT COUNTING
 tracker = Tracker()
 counter = Counter((700,475), (1225,490))
 
