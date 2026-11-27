@@ -6,7 +6,7 @@ This is an embedded computer vision project that uses YOLO11 and OpenCV for obje
 
 ## Features 
 
-* __Object Detection__: Vehicle and pedestrian detection using YOLO11 nano, small, and medium models
+* __Object Detection__: Vehicle and pedestrian detection using YOLO11n, YOLO11s, and YOLO11m models
 * __Object Tracking__: Custom-implemented multi-object tracking with bounding-box estimation, intersection over union, and the Hungarian algorithm for persistence across missed frames
 * __Vehicle Counting__: Use multi-object tracking to count the net vehicle flow across a specified line
 * __Performance Benchmarking__: Measured inference speed across different hardware platforms
