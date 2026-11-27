@@ -29,4 +29,8 @@ Inference performance was measured excluding the first 10 frames of the video da
 
 ![Basic Inference Result](media/inference.png)
 
+![Vehicle Counting GIF](media/TrafficVision.gif)
+
+![Jetson Nano Deployment](media/jetson_deploymnet.png)
+
 
