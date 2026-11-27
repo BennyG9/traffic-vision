@@ -36,14 +36,14 @@ Inference performance was measured excluding the first 10 frames of the video da
 #### Jetson Nano Deployment
 ![Jetson Nano Deployment](media/jetson_deployment.png)
 
-## Data 
+## Dataset and Attribution
 
-RoadVision uses traffic footage from the Dataset for Traffic Evaluation by Tiago Silva, available on Zenodo.
+RoadVision uses traffic footage from the *Dataset for Traffic Evaluation* by Tiago Silva, available on [Zenodo](https://doi.org/10.5281/zenodo.14041920).
 
-Citation:
+**Citation:**
 
-Silva, T. (2024). Dataset for Traffic Evaluation (Version 2) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.14041920
+> Silva, T. (2024). *Dataset for Traffic Evaluation* (Version 2) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.14041920
 
-The Zenodo record identifies CC BY 4.0 and MIT licenses. Refer to the original dataset record for the applicable licensing information.
+The Zenodo record identifies CC BY 4.0 and MIT licenses. Refer to the [original dataset record](https://zenodo.org/records/14041920) for licensing information.
 
 Original input videos are not included in this repository. Users can obtain the dataset directly from Zenodo.
