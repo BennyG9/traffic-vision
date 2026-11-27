@@ -16,7 +16,9 @@ This is an embedded computer vision project that uses YOLO11 and OpenCV for obje
 
 Roadway video data is sourced from: https://zenodo.org/records/14041920
 
-## Results and Benchmarks 
+## Results
+
+### Benchmarks
 
 | Platform | GPU | Model | Input Resolution | Mean Inference FPS |
 | --- | --- | --- | --- | --- |
@@ -27,13 +29,15 @@ Roadway video data is sourced from: https://zenodo.org/records/14041920
 
 Inference performance was measured excluding the first 10 frames of the video data. Measurements include model processing, inference, and postprocessing, but exclude video decoding and display overhead. 
 
-**YOLO Image Inference**
+### Demonstrations 
+
+#### Object Detection
 ![Basic Inference Result](media/inference.png)
 
-**Object Tracking and Vehicle Counting Video**
+#### Object Tracking and Vehicle Counting
 ![Vehicle Counting GIF](media/TrafficVision.gif)
 
-**Deployment on NVIDIA Jetson Nano**
+#### Jetson Nano Deployment
 ![Jetson Nano Deployment](media/jetson_deployment.png)
 
 
