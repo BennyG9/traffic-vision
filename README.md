@@ -18,11 +18,12 @@ Roadway video data is sourced from: https://zenodo.org/records/14041920
 
 ## Results and Benchmarks 
 
-Platform | GPU | Model | Input Resolution | Inference FPS
-Laptop | RTX 4050 | YOLO11n | 640 | 158.8
-Laptop | RTX 4050 | YOLO11m | 640 | 64.6
-Jetson Nano | Maxwell | YOLO11n | 640 | 9.2
-Jetson Nano | Maxwell | YOLO11n | 416 | 14.5
+| Platform | GPU | Model | Input Resolution | Inference FPS |
+| --- | --- | --- | --- | --- |
+| Laptop | RTX 4050 | YOLO11n | 640 | 158.8 |
+| Laptop | RTX 4050 | YOLO11m | 640 | 64.6 |
+| Jetson Nano | Maxwell | YOLO11n | 640 | 9.2 |
+| Jetson Nano | Maxwell | YOLO11n | 416 | 14.5 |
 
 
 
