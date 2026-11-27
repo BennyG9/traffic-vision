@@ -13,4 +13,5 @@ __pycache__/
 
 #generated outputs
 outputs/
-data/
+data/videos
+data/images
