@@ -1,5 +1,17 @@
 # traffic-vision
 
-This project uses OpenCV and a small YOLO object detection model to implement and deploy embedded computer vision on a Jetson Nano. 
+**Embedded computer vision for traffic monitoring and analysis.**
 
-Data: https://zenodo.org/records/14041920
+This is an embedded computer vision project that uses YOLO11 and OpenCV for object detection, tracking, and counting using existing traffic footage. The system implements object tracking, which is used in traffic analysis to count the number of cars that cross a given threshold. The project was deployed on a NVIDIA Jetson Nano and compared against inference performance on my laptop. 
+
+## Features 
+
+* __Object Detection__: Vehicle and pedestrian detection using YOLO11 nano, small, and medium models
+* __Object Tracking__: Custom-implemented multi-object tracking with bounding-box estimation, intersection over union, and the Hungarian algorithm for persistence across missed frames
+* __Vehicle Counting__: Use multi-object tracking to count the net vehicle flow across a specified line
+* __Performance Benchmarking__: Measured inference speed across different hardware platforms
+* __Embedded Deployment__: Deployed on a NVIDIA Jetson Nano with CUDA acceleration
+
+## Data 
+
+Roadway video data is sourced from: https://zenodo.org/records/14041920
