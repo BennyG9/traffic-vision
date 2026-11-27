@@ -27,10 +27,13 @@ Roadway video data is sourced from: https://zenodo.org/records/14041920
 
 Inference performance was measured excluding the first 10 frames of the video data. Measurements include model processing, inference, and postprocessing, but exclude video decoding and display overhead. 
 
+**YOLO Image Inference**
 ![Basic Inference Result](media/inference.png)
 
+**Object Tracking and Vehicle Counting Video**
 ![Vehicle Counting GIF](media/TrafficVision.gif)
 
-![Jetson Nano Deployment](media/jetson_deploymnet.png)
+**Deployment on NVIDIA Jetson Nano**
+![Jetson Nano Deployment](media/jetson_deployment.png)
 
 
